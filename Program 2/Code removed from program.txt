@@ -1,0 +1,71 @@
+/** Book Code taken out of prog2 */
+
+/** A vertex of an adjacency map graph representation. */
+    private class Vertex<V>{
+        private V element;
+        private Position<Vertex<V>> pos;
+        private Map<Vertex<V>, Edge<E>> outgoing, incoming;
+        
+        /**Constructs a new Vertex instance storing the given element. */
+        public Vertex(V elem){
+            element = elem;
+            outgoing = new ProbeHashMap<>();
+            incoming = new ProbeHashMap<>();
+        }
+        
+        /** Returns the element associated with the vertex. */
+        public V getElement() {return element;}
+        
+        /** Stores the position of this vertex within the graph's vertex list. */
+        public void setPosition(Position<Vertex<V>> p) {pos = p;}
+        
+        /** Returns the position of this vertex within the graph's vertex list. */
+        public Position<Vertex<V>> getPosition() {return pos;}
+        
+        /**Returns reference to the underlying map of outgoing edges. */
+        public Map<Vertex<V>, Edge<E>> getOutgoing() {return outgoing;}
+        
+        /**Returns reference to the underlying map of incoming edges. */
+        public Map<Vertex<V>, Edge<E>> getIncoming() {return incoming;}
+    }//---------------End of InnerVertex class-----------------
+    
+    /**An edge between two vertices. */
+    private class Edge<E>{
+        private E element;
+        private Position<Edge<E>> pos;
+        private Vertex<V>[] endpoints;
+        /** Constructs Edge instance from u to v, storing the given element. */
+        public Edge(Vertex<V> u, Vertex<V> v, E elem){
+            element = elem;
+            endpoints = (Vertex<V>[]) new Vertex[]{u,v}; // array of length 2
+        }
+        /** Returns the element associated with the edge. */
+        public E getElement() {return element;}
+        
+        /** Returns reference to the endpoint array. */
+        public Vertex<V>[] getEndpoints() {return endpoints;}
+        
+        /** Stores the position of this edge within the graph's vertex list. */
+        public void setPosition(Position<Edge<E>> p) {pos = p;}
+        
+        /** Returns the position of this edge within the graph's vertex list */
+        public Position<Edge<E>> getPosition() {return pos;}
+    } //-----------------end of Edge class---------------------
+    
+    private boolean isDirected;
+    private PositionalList<Vertex<V>> vertices = new LinkedPositionalList<>();
+    private PositionalList<Edge<E>> edges = new LinkedPositionalList<>();
+    
+    /** Constructs an empty directed graph */
+    
+    /** Returns the number of vertices of the graph */
+    public int numVertices() {return vertices.size();}
+    
+    /** Returns the vertices of the graph as an iterable collection */
+    public Iterable<Vertex<V>> vertices() {return vertices;}
+    
+    /** Returns the number of edges of the graph */
+    public int numEdges() {return edges.size();}
+    
+    /** Returns the edges of the graph as an iterable collection */
+    public Iterable<Edge<V>> edges() {return edges;}

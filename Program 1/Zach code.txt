@@ -1,0 +1,82 @@
+public class Prog1 {
+    private char[] heap = new char[256];
+    private int size = 0;
+    public Prog1(String fileName) { //reads through an array of charcters to determine to insert or remove a charcter
+        try {
+            Scanner file = new Scanner(new File(fileName));
+            size = 1;
+            String fileContents = file.next();
+            char[] charArray = fileContents.toCharArray();
+            System.out.println(Arrays.toString(charArray));
+            heap[size] = charArray[0];
+            size++;
+            for (int i = 1; i < charArray.length; i++){ 
+                if (charArray[i] != '!')
+                    insert(size, charArray[i]);
+                else{ //prints the character before removing it
+                    System.out.print(heap[1]);
+                    remove();
+                }
+            }
+        } catch (FileNotFoundException e) {
+            System.out.print("File not found!");
+        }
+ 
+    }
+    
+    public void insert(int n, char c){ //inserts parametrized character into the heap
+            heap[n] = c;
+            if (heap[n] <  heap[n/2])
+                insertFlip(n);
+            size++;
+    }
+    
+    public void insertFlip(int n){ //recursively flips the inserted character if the character is less than its parent
+        char temp = heap[n];
+        heap[n] = heap[n/2];
+        heap[n/2] = temp;
+        if (heap[n/2] == 1)
+            return;
+        if (heap[n/2] < heap[n/4])
+            insertFlip(n/2);
+    }
+    
+    public void remove(){ //removes the smallest character from the heap
+        if (size == 2)
+            size--;
+        else{
+        heap[1] = heap[size-1];
+        size--;
+        if (size < 2)
+            return;
+        else if(size < 3 && heap[1] > heap[2])
+            removeFlip(2);
+        else if (heap[1] > heap[2] && heap[2] < heap[3])
+            removeFlip(2);
+        else if (heap[1] > heap[3])
+            removeFlip(3);
+        }
+    }
+    
+    public void removeFlip(int n){ //recursively flips a character if one of its children is less than it
+        char temp = heap[n];
+        heap[n] = heap[n/2];
+        heap[n/2] = temp;
+        if (size < 2*n)
+            return;
+        else if(size < 2*n+1 && heap[2*n] > heap[2*n+1])
+            removeFlip(2*n);
+        else if (heap[n] > heap[2 * n] && heap[2 * n] < heap[2 * n +1])
+            removeFlip(2 * n);
+        else if (heap[n] > heap[2 * n +1])
+            removeFlip(2 * n +1);
+    }
+     
+    public static void main(String[] args) {
+        Scanner keyBd = new Scanner(System.in);
+        System.out.println("Enter input file: " );
+        String fileName = keyBd.next();
+        Prog1 heapify = new Prog1(fileName);
+    }
+    
+}

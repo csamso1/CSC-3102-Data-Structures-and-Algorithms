@@ -1,0 +1,20 @@
+cs310268@classes:~/Prog0$ java Prog0 RandomInts.txt
+sorted integers: [0, 0, 0, 2, 2, 4, 4, 5, 6, 6, 6, 7, 8, 8, 8, 9, 11, 12, 12, 13, 14, 17, 17, 18, 19, 20, 20, 20, 21, 21, 21, 23, 28, 29, 30, 33, 34, 34, 35, 35, 37, 41, 42, 42, 44, 47, 48, 48, 50, 50, 52, 53, 53, 54, 54, 56, 58, 60, 61, 62, 63, 65, 66, 66, 66, 67, 67, 68, 68, 69, 70, 72, 73, 74, 74, 75, 75, 76, 76, 76, 76, 79, 81, 82, 85, 86, 87, 88, 88, 89, 91, 91, 92, 93, 94, 95, 96, 96, 97, 99]
+cs310268@classes:~/Prog0$ java Prog0 input.txt
+sorted integers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 45, 47, 58, 60, 66, 69, 75, 79, 99, 100]
+cs310268@classes:~/Prog0$ dir
+input.txt  Prog0.class  Prog0.java  RandomInts.txt
+cs310268@classes:~/Prog0$ ~cs3102_koo/bin/p_copy 0
+ls: cannot access /classes/cs3102/cs310268/prog0: No such file or directory
+cs310268
+Use the verify script to verify what you submitted.
+cs310268@classes:~/Prog0$ cd
+cs310268@classes:~$ ls
+Prog0
+cs310268@classes:~$ cd Prog0/
+cs310268@classes:~/Prog0$ cd
+cs310268@classes:~$ ~cs3102_koo/bin/p_copy 0
+ls: cannot access /classes/cs3102/cs310268/prog0: No such file or directory
+cs310268
+Use the verify script to verify what you submitted.
+cs310268@classes:~$

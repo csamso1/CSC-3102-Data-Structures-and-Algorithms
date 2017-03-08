@@ -1,0 +1,12 @@
+add A B
+add A C
+add B D
+add D E
+add E A
+add E B
+breadth A
+depth A
+remove A B
+add B A
+breadth B
+depth B
